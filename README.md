@@ -1,6 +1,6 @@
-# Java_Loan
+# LoanCheck
 
-This is a standalone Java version of the LoanCheck application using Spring Boot and Thymeleaf.
+LoanCheck is a loan eligibility predictor designed to help users evaluate their borrowing readiness clearly and efficiently. It combines financial and personal inputs to provide a concise recommendation and a transparent risk breakdown.
 
 ## Run the application
 
