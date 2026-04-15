@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | LoanCheck</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+
+<div th:replace="~{fragments/sidebar :: sidebar('dashboard')}"></div>
+<div th:replace="~{fragments/sidebar :: mobile-sidebar('dashboard')}"></div>
+
+<div class="main-content">
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
+
+    <main class="p-4 p-lg-5 flex-grow-1">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h1 class="h3 mb-1">Dashboard</h1>
+                <p class="text-muted mb-0">Welcome back, here's an overview of the system.</p>
+            </div>
+            <a th:href="@{/apply}" class="btn btn-primary shadow-sm d-flex align-items-center">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                New Application
+            </a>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="row g-4 mb-4">
+            <div class="col-sm-6 col-xl-3">
+                <div class="summary-card p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h6 class="text-muted mb-0 fw-semibold text-uppercase" style="font-size: 0.8rem; letter-spacing: 0.5px;">Total Applications</h6>
+                        <div class="card-icon bg-primary bg-opacity-10 text-primary">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-end justify-content-between">
+                        <h2 class="mb-0 fs-3">1,284</h2>
+                        <span class="badge badge-soft-success rounded-pill">+12.5%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+                <div class="summary-card p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h6 class="text-muted mb-0 fw-semibold text-uppercase" style="font-size: 0.8rem; letter-spacing: 0.5px;">Approved</h6>
+                        <div class="card-icon" style="background-color: #dcfce7; color: #16a34a;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-end justify-content-between">
+                        <h2 class="mb-0 fs-3">845</h2>
+                        <span class="badge badge-soft-success rounded-pill">+4.2%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+                <div class="summary-card p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h6 class="text-muted mb-0 fw-semibold text-uppercase" style="font-size: 0.8rem; letter-spacing: 0.5px;">Pending Review</h6>
+                        <div class="card-icon" style="background-color: #fef9c3; color: #eab308;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-end justify-content-between">
+                        <h2 class="mb-0 fs-3">312</h2>
+                        <span class="badge badge-soft-warning rounded-pill">-2.1%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+                <div class="summary-card p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h6 class="text-muted mb-0 fw-semibold text-uppercase" style="font-size: 0.8rem; letter-spacing: 0.5px;">Rejected</h6>
+                        <div class="card-icon" style="background-color: #fee2e2; color: #dc2626;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-end justify-content-between">
+                        <h2 class="mb-0 fs-3">127</h2>
+                        <span class="text-muted" style="font-size: 0.8rem;">9.8% rate</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 mb-4">
+            <!-- Loan Types (Retaining existing logic) -->
+            <div class="col-12 col-lg-4">
+                <div class="app-card no-hover-effect h-100 d-flex flex-column">
+                    <div class="p-4 border-bottom d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0 fs-6 text-dark fw-bold">Supported Loan Types</h5>
+                    </div>
+                    <div class="p-0 flex-grow-1">
+                        <div class="list-group list-group-flush rounded-bottom">
+                            <div th:each="loan : ${loanTypes}" class="list-group-item p-3 border-bottom d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <div class="rounded-circle bg-light d-flex align-items-center justify-content-center me-3 text-primary" style="width: 40px; height: 40px; font-size: 1.25rem;">
+                                        <span th:text="${loan.loanType.name() == 'HOME' ? '🏠' : loan.loanType.name() == 'CAR' ? '🚗' : loan.loanType.name() == 'EDUCATION' ? '🎓' : '💳'}"></span>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0 fw-semibold text-dark" th:text="${loan.label}">Loan</h6>
+                                        <small class="text-muted" th:text="'Rate: ' + ${loan.interestRate} + '%'"></small>
+                                    </div>
+                                </div>
+                                <span class="badge bg-light text-dark shadow-sm border border-secondary border-opacity-25" th:text="'Up to ' + ${loan.maxMultiplier} + 'x'"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Applications Table placeholder -->
+            <div class="col-12 col-lg-8">
+                <div class="app-card no-hover-effect h-100 d-flex flex-column">
+                    <div class="p-4 border-bottom d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0 fs-6 text-dark fw-bold">Recent Applications</h5>
+                        <button class="btn btn-sm btn-outline-secondary">View All</button>
+                    </div>
+                    <div class="table-responsive flex-grow-1">
+                        <table class="table mb-0 align-middle">
+                            <thead class="bg-light bg-opacity-50">
+                                <tr>
+                                    <th class="ps-4">Applicant Name</th>
+                                    <th>Loan Amount</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th class="text-end pe-4">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="ps-4">
+                                        <div class="d-flex align-items-center">
+                                            <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-2" style="width: 32px; height: 32px; font-size: 0.8rem; font-weight: bold;">AS</div>
+                                            <span class="fw-medium text-dark">Anita Sharma</span>
+                                        </div>
+                                    </td>
+                                    <td class="fw-medium">₹3,500,000</td>
+                                    <td class="text-muted">15 Apr 2026</td>
+                                    <td><span class="badge badge-soft-warning rounded-pill px-2 py-1 border border-warning border-opacity-25">Pending</span></td>
+                                    <td class="text-end pe-4"><a href="#" class="text-primary text-decoration-none fw-medium" style="font-size: 0.9rem;">Review</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="ps-4">
+                                        <div class="d-flex align-items-center">
+                                            <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center me-2" style="width: 32px; height: 32px; font-size: 0.8rem; font-weight: bold;">VK</div>
+                                            <span class="fw-medium text-dark">Vikram Kumar</span>
+                                        </div>
+                                    </td>
+                                    <td class="fw-medium">₹850,000</td>
+                                    <td class="text-muted">14 Apr 2026</td>
+                                    <td><span class="badge badge-soft-success rounded-pill px-2 py-1 border border-success border-opacity-25">Approved</span></td>
+                                    <td class="text-end pe-4"><a href="#" class="text-primary text-decoration-none fw-medium" style="font-size: 0.9rem;">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="ps-4">
+                                        <div class="d-flex align-items-center">
+                                            <div class="rounded-circle bg-danger text-white d-flex align-items-center justify-content-center me-2" style="width: 32px; height: 32px; font-size: 0.8rem; font-weight: bold;">MP</div>
+                                            <span class="fw-medium text-dark">Meera Patel</span>
+                                        </div>
+                                    </td>
+                                    <td class="fw-medium">₹1,200,000</td>
+                                    <td class="text-muted">12 Apr 2026</td>
+                                    <td><span class="badge badge-soft-danger rounded-pill px-2 py-1 border border-danger border-opacity-25">Rejected</span></td>
+                                    <td class="text-end pe-4"><a href="#" class="text-primary text-decoration-none fw-medium" style="font-size: 0.9rem;">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="ps-4">
+                                        <div class="d-flex align-items-center">
+                                            <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center me-2" style="width: 32px; height: 32px; font-size: 0.8rem; font-weight: bold;">RS</div>
+                                            <span class="fw-medium text-dark">Raj Singh</span>
+                                        </div>
+                                    </td>
+                                    <td class="fw-medium">₹5,000,000</td>
+                                    <td class="text-muted">10 Apr 2026</td>
+                                    <td><span class="badge badge-soft-success rounded-pill px-2 py-1 border border-success border-opacity-25">Approved</span></td>
+                                    <td class="text-end pe-4"><a href="#" class="text-primary text-decoration-none fw-medium" style="font-size: 0.9rem;">View</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
